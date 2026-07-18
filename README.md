@@ -1,7 +1,7 @@
 # BREAKTHROUGH 04: Quantum-Biological Navigation (Birds → Drones)
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
+![Quantum](https://img.shields.io/badge/Domain-Quantum-blue) ![Drone](https://img.shields.io/badge/Domain-Drone-blue)
 
 This repository implements the research pipeline for the **BREAKTHROUGH 04: Quantum-Biological Navigation (Birds → Drones)** project, developed by the Runtime-Slayers research group.
 
@@ -40,7 +40,7 @@ graph TD
 
 ## 🔍 Abstract & Research Context
 
-
+### From Absolute Zero Knowledge to Publishable Paper --- # PART A: UNDERSTANDING THE WORLD YOU'RE ENTERING --- ## 1. WHAT IS THIS ABOUT? (Explained Like You're 10) Every year, billions of migratory birds fly thousands of kilometers — Arctic terns travel from the Arctic to Antarctica (70,000 km round trip!), and tiny European robins fly from Scandinavia to Africa. They arrive at the exact same nesting site year after year, even flying at night, through storms, and over featureless oceans.
 
 ---
 
