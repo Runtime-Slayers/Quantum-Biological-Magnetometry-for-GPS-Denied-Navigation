@@ -1,157 +1,102 @@
-# 🧭 Quantum Biological Magnetometry for GPS-Denied Drone Navigation
+# BREAKTHROUGH 04: Quantum-Biological Navigation (Birds → Drones)
 
-> **Runtime-Slayers Research** | Autonomous Navigation Systems | 2026
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
-[![NV Centers](https://img.shields.io/badge/Sensor-NV%20Diamond-cyan)](https://en.wikipedia.org/wiki/Nitrogen-vacancy_center)
-[![EKF](https://img.shields.io/badge/Filter-10D%20Extended%20Kalman-purple)]()
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-green)](LICENSE)
+
+This repository implements the research pipeline for the **BREAKTHROUGH 04: Quantum-Biological Navigation (Birds → Drones)** project, developed by the Runtime-Slayers research group.
 
 ---
 
-## 🌍 Overview
+## 📊 Pipeline Architecture
 
-This project implements a **quantum-biological magnetometry navigation system** for GPS-denied environments. Inspired by how migratory birds use **radical-pair spin chemistry** to sense Earth's magnetic field, we replicate this with **Nitrogen-Vacancy (NV) diamond sensors** — solid-state quantum magnetometers that detect field anomalies with nanotesla precision.
+The flowchart below visualizes the methodology and execution sequence implemented in this project:
 
-The system fuses quantum magnetometer readings into a **10-dimensional Extended Kalman Filter (EKF)** that dynamically tracks spatial magnetic anomalies, enabling sub-meter drift correction without GPS or radio signals.
-
-**Key blind spot solved**: Standard EKF navigation (3D position + 3D velocity) fails in magnetically anomalous regions. Our 10D state vector adds 4 anomaly parameters, preventing divergence when the drone flies over geological features, powerlines, or urban infrastructure.
-
----
-
-## 🧠 Novel Contributions
-
-| Feature | Novelty |
-|---|---|
-| **Radical-pair-inspired signal processing** | Applies spin-correlation noise rejection from quantum biology to NV-center readout |
-| **10D EKF with anomaly tracking** | First open impl of dynamic spatial anomaly compensation in drone magnetometry navigation |
-| **Gaussian anomaly injection** | Realistic test environment with localized magnetic disturbance along flight path |
-| **18.1% drift reduction** | Demonstrated over standard 6D EKF baseline in anomalous terrain simulation |
-
----
-
-## ⚛️ Physics & Algorithms
-
-### NV-Center Magnetometer Model
-Nitrogen-vacancy centers in diamond exhibit **optically detected magnetic resonance (ODMR)**:
-- Spin state splits under external field via **Zeeman effect**
-- Microwave frequency shift → field magnitude
-- Sensitivity: ~1 nT/√Hz at room temperature
-
-### Radical-Pair Spin Chemistry (Bio-Inspired)
-Migratory birds' magnetic sense relies on:
-```
-[A·⁺ ··· B·⁻]  →  singlet/triplet ratio depends on B-field orientation
-```
-We apply analogous spin-correlation filtering to reject correlated noise in NV readouts.
-
-### 10D Extended Kalman Filter State Vector
-```
-x = [px, py, pz,          # 3D position
-     vx, vy, vz,          # 3D velocity
-     Bx, By, Bz,          # local magnetic field vector
-     α]                   # anomaly amplitude scalar
-```
-The anomaly state `α` enables real-time compensation as the drone traverses magnetically inhomogeneous terrain.
-
----
-
-## 📁 Project Structure
-
-```
-Quantum-Biological-Magnetometry-for-GPS-Denied-Navigation/
-├── quantum_navigation/
-│   ├── dead_reckoning.py       # 10D EKF implementation + anomaly tracking
-│   ├── nv_sensor.py            # NV-center ODMR sensor model
-│   └── radical_pair.py         # Bio-inspired spin-correlation signal processing
-├── experiments/
-│   └── run_navigation_simulation.py  # Spiral path + Gaussian anomaly benchmark
-├── tests/
-│   └── test_navigation_advanced.py   # Unit tests for EKF, sensor model
-├── data/                       # Magnetic field reference data
-├── figures/                    # Output navigation plots
-├── requirements.txt
-└── README.md
+```mermaid
+graph TD
+    subgraph Quantum Layer
+        A[Quantum State / Qubit Initialization] --> B[Channel Transmission & Perturbations]
+    end
+    subgraph Information Processing
+        B --> C[Quantum Error Correction<br>Topological Surface Code / BB84 Protocol]
+        C --> D[Tamper Detection / Measurement Statistics]
+    end
+    subgraph System Validation
+        D --> E[Secure Key Rate & Fidelity Assessment]
+    end
 ```
 
 ---
 
-## ⚙️ Installation
+## 🔍 Abstract & Research Context
 
+
+
+---
+
+## 📊 Key Evaluation Metrics
+
+| Research Group | Institution | Key Finding |
+|---------------|-------------|-------------|
+| **Peter Hore** | University of Oxford, UK | Leading theorist of radical pair mechanism. Computed hyperfine tensors of FAD-Trp chain. Published models predicting compass sensitivity |
+| **Henrik Mouritsen** | University of Oldenburg, Germany | Discovered CRY4 in robin retina is the magnetoreceptor (not CRY1/2). Night-vision experiments with robins |
+| **Thorsten Ritz** | UC Irvine, USA | Original co-author of radical pair model. Predicted inclination compass before experimental confirmation |
+| **Ilia Solov'yov** | University of Oldenburg | Molecular dynamics simulations of CRY4 protein |
+| **Erik Gauger** | Heriot-Watt University, UK | Quantum theory of radical pairs, entanglement role |
+| **Luca Turin** | (Various) | Quantum biology beyond magnetoreception |
+
+---
+
+## 📁 Repository Structure
+
+The project directory consists of the following core structures:
+  - `code/` — Pipeline execution scripts and model training modules
+  - `figures/` — Plots, charts, and visualizations generated by the pipeline
+  - `validation/` — Automated test metrics and results
+  - `pytest.ini`
+  - `requirements.txt`
+  - `experiments`
+  - `tests`
+  - `output`
+  - `code`
+  - `.gitignore`
+  - `figures`
+  - `.github`
+  - `quantum_navigation`
+  - `BT04_Quantum_Biological_Navigation.md`
+  - `data`
+  - `paper.pdf` — Compiled research manuscript
+  - `README.md` — Project documentation and setup guide
+
+---
+
+## 🚀 Setup and Usage
+
+### Prerequisites
+* Python 3.8 or higher
+* Pip package manager
+
+### Installation
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Runtime-Slayers/Quantum-Biological-Magnetometry-for-GPS-Denied-Navigation.git
+   cd Quantum-Biological-Magnetometry-for-GPS-Denied-Navigation
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Running the Analysis
+To run the primary analysis pipeline and regenerate all models, figures, and metrics:
 ```bash
-git clone https://github.com/Runtime-Slayers/Quantum-Biological-Magnetometry-for-GPS-Denied-Navigation.git
-cd Quantum-Biological-Magnetometry-for-GPS-Denied-Navigation
-pip install -r requirements.txt
+python code/*.py
 ```
-
-**Dependencies**: `numpy`, `scipy`, `matplotlib`
-
----
-
-## 🏃 Quick Start
-
-```bash
-# Run the GPS-denied navigation simulation
-python experiments/run_navigation_simulation.py
-```
-
-The simulation:
-1. Generates a **3D spiral flight path** (100 waypoints)
-2. Injects a **localized Gaussian magnetic anomaly** (σ=5m, peak=50 nT) along the path
-3. Compares **standard 6D EKF** vs **10D anomaly-tracking EKF**
-4. Outputs trajectory comparison and drift statistics
-
-```bash
-# Run unit tests
-pytest tests/ -v
-```
+*(Look in the `code/` directory for specific pipeline execution files)*
 
 ---
 
-## 📊 Benchmark Results
+## 📄 License and Copyright
 
-| Metric | Standard 6D EKF | 10D Anomaly EKF | Improvement |
-|---|---|---|---|
-| Final position error | 4.73 m | 3.87 m | **18.1% reduction** |
-| Anomaly region divergence | Yes | No | **Stable** |
-| Heading drift (°/km) | 2.8 | 1.9 | **32% reduction** |
-| Compute overhead | — | +4 states | **Negligible** |
-
----
-
-## 🦅 Bio-Inspiration: The Radical Pair Mechanism
-
-The European Robin (*Erithacus rubecula*) detects magnetic fields via:
-- **Cryptochrome proteins** in the retina containing flavin adenine dinucleotide (FAD)
-- Blue-light excitation creates a radical pair `[FAD·⁻ ··· Trp·⁺]`
-- Singlet-triplet interconversion rate is **field-direction sensitive**
-- Neural signals encode heading information relative to Earth's field
-
-Our system maps this to NV-center ensemble behavior, where field-dependent spin-flip rates modulate ODMR signal amplitude in an analogous way.
-
----
-
-## 🔬 Applications
-
-- **Military UAV navigation** in GPS-jammed environments
-- **Search-and-rescue** drones operating underground/indoors
-- **Planetary exploration** robots (Mars has no GPS)
-- **Submarine navigation** in deep water (magnetic mapping)
-- **Precision agriculture** drones in RF-denied rural corridors
-
----
-
-## 📄 License
-
-Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).
-
-[![CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
 © 2026 Runtime-Slayers / Bhavanam Rajendra Reddy et al. All rights reserved.
-
----
-
-## 👥 Authors
-
-**Runtime-Slayers Research Group** — Bhavanam Rajendra Reddy et al.  
-🌐 [github.com/Runtime-Slayers](https://github.com/Runtime-Slayers)
